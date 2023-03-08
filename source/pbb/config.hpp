@@ -7,11 +7,19 @@
 // Official repository: https://github.com/CPPAlliance/BoostServerTech
 //
 
-#include <pbb/server.hpp>
+#ifndef PBB_CONFIG_HPP
+#define PBB_CONFIG_HPP
 
-int main(int, char**)
-{
-    using namespace pbb;
+namespace boost {
+namespace asio {
+class executor;
+} // asio
+} // boost
 
-    auto srv = make_server();
-}
+namespace pbb {
+
+namespace asio = boost::asio;
+
+} // pbb
+
+#endif

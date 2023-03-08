@@ -67,12 +67,35 @@ find_package(ZLIB REQUIRED)
 
 # ---- Executable ----
 
-add_executable(BoostServerTech source/main.cpp)
+file(GLOB_RECURSE PBB_HEADERS CONFIGURE_DEPENDS
+    source/*.hpp
+    source/*.ipp
+    source/*.natvis
+)
+
+file(GLOB_RECURSE PBB_SOURCES CONFIGURE_DEPENDS
+    source/*.cpp
+    source/src/*.cpp
+)
+
+add_executable(
+    BoostServerTech
+    ${PBB_HEADERS}
+    ${PBB_SOURCES})
 
 target_compile_definitions(
     BoostServerTech
     PUBLIC
     )
+
+target_include_directories(
+    BoostServerTech
+    PUBLIC
+    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/source/>"
+)
+
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/source PREFIX "" FILES ${PBB_HEADERS} ${PBB_SOURCES})
 
 set_property(TARGET BoostServerTech PROPERTY OUTPUT_NAME BoostServerTech)
 
