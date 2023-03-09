@@ -21,6 +21,9 @@ class server
 {
 public:
     virtual
+    ~server() = 0;
+
+    virtual
     void
     run() = 0;
 
