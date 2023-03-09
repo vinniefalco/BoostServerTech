@@ -56,6 +56,7 @@ set(BOOST_INCLUDE_LIBRARIES
     http_proto
     http_io
     json
+    thread
     )
 add_subdirectory(${BOOST_ROOT} bin64/boost)
 unset(CMAKE_FOLDER)
@@ -117,6 +118,7 @@ target_link_libraries(
     Boost::http_proto
     Boost::http_io
     Boost::json
+    Boost::thread
     Boost::url
     )
 

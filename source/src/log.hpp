@@ -7,10 +7,21 @@
 // Official repository: https://github.com/CPPAlliance/BoostServerTech
 //
 
-#include <pbb/server.hpp>
+#ifndef SRC_LOG_HPP
+#define SRC_LOG_HPP
 
-int main(int, char**)
-{
-    using namespace pbb;
+#include <pbb/config.hpp>
 
-}
+namespace pbb {
+
+// Workaround for slow MSVC std::mutex
+// constrained by ABI compatibility.
+#ifdef _MSC_VER
+using mutex = boost::shared_mutex;
+#else
+using mutex = std::mutex;
+#endif
+
+} // pbb
+
+#endif

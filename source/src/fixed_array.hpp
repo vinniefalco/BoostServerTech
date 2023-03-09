@@ -10,6 +10,7 @@
 #ifndef SRC_FIXED_ARRAY_HPP
 #define SRC_FIXED_ARRAY_HPP
 
+#include <pbb/config.hpp>
 #include <cstdlib>
 #include <memory>
 
