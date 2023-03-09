@@ -55,6 +55,7 @@ set(BOOST_INCLUDE_LIBRARIES
     buffers
     http_proto
     http_io
+    json
     )
 add_subdirectory(${BOOST_ROOT} bin64/boost)
 unset(CMAKE_FOLDER)
@@ -115,6 +116,8 @@ target_link_libraries(
     Boost::buffers
     Boost::http_proto
     Boost::http_io
+    Boost::json
+    Boost::url
     )
 
 # ---- Install rules ----

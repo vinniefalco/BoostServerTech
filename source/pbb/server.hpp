@@ -15,23 +15,36 @@
 
 namespace pbb {
 
-struct single_threaded_t
-{
-};
-
-
+/** The server object which holds everything.
+*/
 class server
 {
 public:
-    using executor_type = asio::executor;
+    virtual
+    void
+    run() = 0;
 
     virtual
-    executor_type
-    make_executor() = 0;
+    void
+    stop() = 0;
 };
 
+/** One io_context and one thread
+*/
 std::unique_ptr<server>
-make_server();
+make_single_threaded_server();
+
+/** One io_context and many threads
+*/
+std::unique_ptr<server>
+make_multi_threaded_server(
+    std::size_t number_of_threads);
+
+/** Many single-threaded io_contexts
+*/
+std::unique_ptr<server>
+make_multi_context_server(
+    std::size_t number_of_contexts);
 
 } // pbb
 

@@ -14,11 +14,15 @@ namespace boost {
 namespace asio {
 class executor;
 } // asio
+namespace core {}
+namespace system {}
 } // boost
 
 namespace pbb {
 
 namespace asio = boost::asio;
+namespace core = boost::core;
+namespace system = boost::system;
 
 } // pbb
 
