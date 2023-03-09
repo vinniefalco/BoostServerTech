@@ -11,6 +11,7 @@
 #define SRC_NET_LISTENER_HPP
 
 #include <pbb/config.hpp>
+#include <pbb/log.hpp>
 #include <boost/asio/executor.hpp>
 #include <boost/asio/ip/tcp.hpp>
 

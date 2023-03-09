@@ -42,6 +42,9 @@ bind_front(M mf, T* t) ->
 
 //------------------------------------------------
 
+server::
+~server() = default;
+
 namespace {
 
 class server_impl : public server
